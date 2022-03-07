@@ -1,5 +1,5 @@
 const Sauce = require('../models/Sauce');
-
+const fs = require('fs');
 
 exports.createSauce= (req, res, next) => {
   // récupérer les champs dans le corps de la requête
