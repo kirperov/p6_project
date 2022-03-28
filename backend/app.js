@@ -1,3 +1,7 @@
+//installation Dotenv
+require('dotenv').config();
+console.log(process.env.DB_USER_NAME);
+
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -12,7 +16,7 @@ const rateLimit = require('express-rate-limit');
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require("./routes/user");
 
-mongoose.connect('mongodb+srv://Lea:LeaP6Backend@cluster0.og9dv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_USER_PASS}@cluster0.og9dv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
